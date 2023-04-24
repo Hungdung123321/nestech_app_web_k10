@@ -12,7 +12,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, _click: state._click + 1 };
 
     default:
-      return { ...state };
+      return state;
   }
 };
 

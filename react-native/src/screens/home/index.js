@@ -18,8 +18,6 @@ const HomeScreen = ({ route, navigation }) => {
     dispatch(clickUpgradeHandle());
   };
 
-  console.log('clickSelector', clickSelector);
-
   return (
     <View style={styles.container}>
       <Header title={'HomeScreen'} />
