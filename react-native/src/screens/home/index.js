@@ -20,11 +20,9 @@ const HomeScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header title={'HomeScreen'} />
-      <View style={styles.body}>
-        <TouchableOpacity onPress={clickAdd}>
-          <Text style={styles.text}>{clickSelector}</Text>
-        </TouchableOpacity>
+      {/* <Header title={'Ghi chú'} /> */}
+      <View style={{ width: 200, height: 250, borderStartColor: 'red' }}>
+        <Text style={styles.text}>Ghi chú</Text>
       </View>
     </View>
   );
