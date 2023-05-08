@@ -1,8 +1,8 @@
-import { Dimensions, NativeModules, Platform } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
+import { Dimensions, NativeModules, Platform } from "react-native";
+import DeviceInfo from "react-native-device-info";
 
 const dimensions = {};
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 dimensions.window = {
   width,
@@ -17,17 +17,17 @@ const moderateScale = (size: number, factor: number = 0.5) =>
   size + (scale(size) - size) * factor;
 
 export const BOTTOM_TAB_HEIGHT =
-  Platform.OS === 'ios' && DeviceInfo.hasNotch()
+  Platform.OS === "ios" && DeviceInfo.hasNotch()
     ? verticalScale(81)
     : verticalScale(61);
 
 export const MARGIN_TOP_HEADER =
-  DeviceInfo.hasNotch() || Platform.OS === 'ios'
+  DeviceInfo.hasNotch() || Platform.OS === "ios"
     ? verticalScale(50)
     : verticalScale(16);
 
 export const ERROR_POPUP_PADDING =
-  DeviceInfo.hasNotch() || Platform.OS === 'ios' ? 40 : 30;
+  DeviceInfo.hasNotch() || Platform.OS === "ios" ? 40 : 30;
 
 dimensions.spacing = {
   vertical: 10,

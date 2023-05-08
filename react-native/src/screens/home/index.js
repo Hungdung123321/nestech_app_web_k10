@@ -6,7 +6,6 @@ import {
   View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import Header from '../../components/Header';
 import { clickUpgradeHandle } from '../../redux/actions';
 import styles from './styles';
 
@@ -20,9 +19,8 @@ const HomeScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* <Header title={'Ghi chú'} /> */}
-      <View style={{ width: 200, height: 250, borderStartColor: 'red' }}>
-        <Text style={styles.text}>Ghi chú</Text>
+      <View style={{ width: 200, height: 250, backgroundColor: 'red' }}>
+        <Text style={{ color: 'blue' }}>Ghi chú</Text>
       </View>
     </View>
   );
