@@ -8,6 +8,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { clickUpgradeHandle } from '../../redux/actions';
 import styles from './styles';
+import Header from '../../components/Header';
+import AppButton from '../../components/AppButton';
 
 const HomeScreen = ({ route, navigation }) => {
   const dispatch = useDispatch();
@@ -19,9 +21,14 @@ const HomeScreen = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ width: 200, height: 250, backgroundColor: 'red' }}>
-        <Text style={{ color: 'blue' }}>Ghi chú</Text>
-      </View>
+      <Header
+        title={'Ghi chú'}
+        StyleTitle={styles.text}
+        StyleHeader={styles.Header} />
+      <AppButton
+        content={'+'}
+        contentStyle={styles.icAddBtn}
+        style={styles.addBtn} />
     </View>
   );
 };

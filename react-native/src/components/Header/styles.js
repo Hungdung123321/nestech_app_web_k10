@@ -4,7 +4,7 @@ import { MARGIN_TOP_HEADER } from '../../constants/scale';
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    paddingTop: MARGIN_TOP_HEADER,
+    paddingTop: 40,
   },
 });
 
