@@ -3,5 +3,6 @@ export const COLORS = {
   BLACK: '#000000',
   TRANSPARENT: 'transparent',
   PINK: 'rgba(240, 127, 127, 1)',
-  LIGHT_PINK: 'rgba(249, 226, 226, 1)'
+  LIGHT_PINK: 'rgba(249, 226, 226, 1)',
+  LIGHT_BLUE: 'rgba(239, 251, 255, 1)',
 };

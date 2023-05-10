@@ -10,6 +10,7 @@ import { clickUpgradeHandle } from '../../redux/actions';
 import styles from './styles';
 import Header from '../../components/Header';
 import AppButton from '../../components/AppButton';
+import CardToDo from '../../components/CardToDo';
 
 const HomeScreen = ({ route, navigation }) => {
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const HomeScreen = ({ route, navigation }) => {
         content={'+'}
         contentStyle={styles.icAddBtn}
         style={styles.addBtn} />
+      <CardToDo />
+      <CardToDo />
+      <CardToDo />
+      <CardToDo />
     </View>
   );
 };

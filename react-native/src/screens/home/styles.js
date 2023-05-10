@@ -5,7 +5,8 @@ import { COLORS } from '../../constants/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: COLORS.LIGHT_PINK,
+    paddingHorizontal: scale(16)
   },
   text: {
     color: 'black',
@@ -13,7 +14,8 @@ const styles = StyleSheet.create({
     fontWeight: 600
   },
   Header: {
-    paddingHorizontal: 10
+    paddingHorizontal: scale(10),
+    backgroundColor: COLORS.TRANSPARENT
   },
   icAddBtn: {
     fontSize: fontScale(50),
