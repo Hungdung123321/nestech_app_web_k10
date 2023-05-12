@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Image, Modal, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import InputForm from '../../components/InputForm';
 import AppButton from '../../components/AppButton';
 import PrioritySelectModal from '../../components/PrioritySelectModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddTodo } from '../../redux/actions';
+import uuid from 'react-native-uuid'
+
+
 const DetailScreen = ({ route, navigation }) => {
 
+  const dispatch = useDispatch()
+  const listTodo = useSelector(state => state._TodoList)
   const [title, setTitle] = useState('')
   const [Priority, setPriority] = useState('Vui lòng chọn độ ưu tiên công việc')
   const [Visible, setVisible] = useState(false)
 
-  const handleSelctPrio = (value) => {
+
+
+  const handleSelctPrio = useCallback((value) => {
     setPriority(value?.Label)
     setVisible(!Visible)
-  }
+  }, [])
+
+  const handleAddTodo = useCallback(() => {
+    dispatch(AddTodo({ id: uuid.v4(), nameTask: title, prio: Priority }))
+  }, [])
 
   return (
     <>
@@ -44,13 +57,13 @@ const DetailScreen = ({ route, navigation }) => {
         <AppButton
           content={'Thêm'}
           contentStyle={styles.btnFont}
-          style={styles.addbtn} />
+          style={styles.addbtn}
+          onPress={() => handleAddTodo()} />
         <Modal
           animationType='slide'
           transparent={true}
           visible={Visible}
           onRequestClose={() => setVisible(!Visible)}
-
         >
           <TouchableOpacity
             style={styles.PrioModal}
