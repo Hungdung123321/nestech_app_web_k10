@@ -31,8 +31,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.PINK,
     borderRadius: 50,
     alignItems: 'center',
-    justifyContent: 'center'
-
+    justifyContent: 'center',
+    zIndex: 1
+  },
+  listTodo: {
+    paddingBottom: scale(20),
+  },
+  paddingBottom: {
+    paddingBottom: scale(100)
   }
 });
 

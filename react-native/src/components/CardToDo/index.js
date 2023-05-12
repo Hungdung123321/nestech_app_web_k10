@@ -7,8 +7,8 @@ import { ListPrio, PrioValue } from '../../constants/common'
 
 const CardToDo = (prop) => {
     const {
-        ContentTitle = 'Đi chạy bộ',
-        Prio = 0,
+        ContentTitle,
+        Prio,
     } = prop
 
     const PrioLabelContent = useMemo(() => {

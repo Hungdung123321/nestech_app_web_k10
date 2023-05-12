@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <View style={{ flex: 1 }}>
-        <StatusBar translucent />
+        {/* <StatusBar translucent /> */}
         <MainRoutes />
       </View>
     </Provider>

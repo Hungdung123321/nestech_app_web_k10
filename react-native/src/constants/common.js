@@ -18,3 +18,46 @@ export const ListPrio = [
         value: PrioValue.high
     }
 ]
+
+export const DummyData = [
+    {
+        title: 'Đi chạy bộ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Học React',
+        prio: PrioValue.high
+    },
+    {
+        title: 'Nấu cơm',
+        prio: PrioValue.medium
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+    {
+        title: 'Đi chợ',
+        prio: PrioValue.low
+    },
+]

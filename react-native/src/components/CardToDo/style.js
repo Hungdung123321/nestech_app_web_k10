@@ -41,16 +41,16 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     lableFontRed: {
-        color: 'red'
+        color: COLORS.RED
     },
     lableFontGreen: {
-        color: 'green'
+        color: COLORS.GREEN
     },
     lableFontYellow: {
-        color: 'yellow'
+        color: COLORS.YELLOW
     },
     lableFontColorDefault: {
-        color: 'black'
+        color: COLORS.BLACK
     }
 })
 

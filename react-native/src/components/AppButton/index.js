@@ -13,7 +13,7 @@ const AppButton = ({ content, contentStyle, patchImg, ...rest }) => {
             case 'number':
                 return <Text style={style}>{content}</Text>
             case 'function':
-                return <Text style={style}>{content?.()}</Text>
+                return <View style={style}>{content?.()}</View>
             case 'boolean':
                 return <Image style={style} source={patchImg} />
             default:
