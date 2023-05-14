@@ -7,25 +7,34 @@ import {
   View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { clickUpgradeHandle } from '../../redux/actions';
+import { clickUpgradeHandle, removeTodo } from '../../redux/actions';
 import styles from './styles';
 import Header from '../../components/Header';
 import AppButton from '../../components/AppButton';
 import CardToDo from '../../components/CardToDo';
-import { DummyData } from '../../constants/common';
 import { useNavigation } from '@react-navigation/native';
 import { SCREEN_NAMES } from '../../constants/screenName';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  const clickSelector = useSelector((state) => state._click);
+  const listTodo = useSelector(state => state._TodoList)
   const navigation = useNavigation()
-  const clickAdd = () => {
-    dispatch(clickUpgradeHandle());
-  };
+  console.log(listTodo)
+
+  const handleRemoveTodo = (index) => {
+    dispatch(removeTodo(index))
+  }
+
+  const handleEditTodo = (index) => {
+
+  }
 
   const renderCardTodo = ({ item }) => {
-    return <CardToDo ContentTitle={item.title} Prio={item.prio} />
+    return <CardToDo
+      ContentTitle={item?.nameTask}
+      Prio={item?.prio}
+      onRemove={() => handleRemoveTodo(listTodo.indexOf(item))}
+      onEdit={() => handleEditTodo(listTodo.indexOf(item))} />
   }
 
   return (
@@ -40,9 +49,13 @@ const HomeScreen = () => {
         onPress={() => navigation.navigate(SCREEN_NAMES.DETAIL)}
         style={styles.addBtn} />
       <FlatList
-        data={DummyData}
+        data={listTodo}
         contentContainerStyle={styles.listTodo}
-        renderItem={renderCardTodo} />
+        renderItem={renderCardTodo}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => {
+          <Text>{'Danh sách trống'}</Text>
+        }} />
       <View style={styles.paddingBottom} />
     </View>
   );

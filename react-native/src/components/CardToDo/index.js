@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native'
-import React, { useMemo } from 'react'
+import React, { useMemo, memo } from 'react'
 import styles from './style'
 import AppButton from '../AppButton'
 import { ListPrio, PrioValue } from '../../constants/common'
@@ -9,6 +9,8 @@ const CardToDo = (prop) => {
     const {
         ContentTitle,
         Prio,
+        onEdit,
+        onRemove
     } = prop
 
     const PrioLabelContent = useMemo(() => {
@@ -36,12 +38,12 @@ const CardToDo = (prop) => {
                 content={PrioLabelContent?.Label}
                 style={styles.lable} />
             <View style={styles.boxICs}>
-                <AppButton content={true} patchImg={require('../../asset/Img/IC_Pen.png')} />
-                <AppButton content={true} patchImg={require('../../asset/Img/IC_Trash.png')} />
+                <AppButton onPress={onEdit} content={true} patchImg={require('../../asset/Img/IC_Pen.png')} />
+                <AppButton onPress={onRemove} content={true} patchImg={require('../../asset/Img/IC_Trash.png')} />
             </View>
         </View>
     )
 }
 
-export default CardToDo
+export default memo(CardToDo)
 

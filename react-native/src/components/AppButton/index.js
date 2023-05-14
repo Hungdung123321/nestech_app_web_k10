@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View, Image } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import styles from './style'
 
 const AppButton = ({ content, contentStyle, patchImg, ...rest }) => {
@@ -28,5 +28,5 @@ const AppButton = ({ content, contentStyle, patchImg, ...rest }) => {
     )
 }
 
-export default AppButton
+export default memo(AppButton)
 

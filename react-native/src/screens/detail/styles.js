@@ -55,6 +55,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignSelf: 'center'
     },
+    BackBtn: {
+        position: 'absolute',
+        top: scale(40),
+        left: scale(20),
+        zIndex: 1
+    },
     PrioModal: {
         flex: 1,
         alignItems: 'center',

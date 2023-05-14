@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Text, View, TextInput, Image } from 'react-native'
 import styles from './style'
 import AppButton from '../AppButton'
-const InputForm = ({
+const InputForm = memo(({
     title,
     Holder,
     isButtonMode = false,
@@ -11,7 +11,7 @@ const InputForm = ({
     value,
     onPress
 }) => {
-
+    console.log('input render ' + title)
     const renderIcBtn = () => {
         return <>
             <Text style={{ color: 'black' }}>{Holder || 'null'}</Text>
@@ -43,6 +43,6 @@ const InputForm = ({
             }
         </View>
     )
-}
+})
 
-export default InputForm
+export default memo(InputForm)

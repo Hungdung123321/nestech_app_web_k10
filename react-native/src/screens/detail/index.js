@@ -7,32 +7,44 @@ import PrioritySelectModal from '../../components/PrioritySelectModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddTodo } from '../../redux/actions';
 import uuid from 'react-native-uuid'
+import { useNavigation } from '@react-navigation/native';
 
 
-const DetailScreen = ({ route, navigation }) => {
+const DetailScreen = () => {
 
   const dispatch = useDispatch()
-  const listTodo = useSelector(state => state._TodoList)
   const [title, setTitle] = useState('')
-  const [Priority, setPriority] = useState('Vui lòng chọn độ ưu tiên công việc')
+  const [Priority, setPriority] = useState({})
   const [Visible, setVisible] = useState(false)
+  const navigation = useNavigation()
 
-
+  console.log([])
 
   const handleSelctPrio = useCallback((value) => {
-    setPriority(value?.Label)
+    setPriority(value)
+    setVisible(!Visible)
+  }, [Visible])
+
+  const handleAddTodo = useCallback(() => {
+    dispatch(AddTodo({ id: uuid.v4(), nameTask: title, prio: Priority.value }))
+    navigation.goBack()
+  }, [title, Priority])
+
+  const handleChangeText = useCallback((newTest) => {
+    setTitle(newTest)
+  }, [])
+
+  const handlePrioFrom = useCallback(() => {
     setVisible(!Visible)
   }, [])
 
-  const handleAddTodo = useCallback(() => {
-    dispatch(AddTodo({ id: uuid.v4(), nameTask: title, prio: Priority }))
-  }, [])
 
   return (
     <>
       <View style={styles.container}>
         <View style={[styles.circle, styles.circle_Top]} />
         <View style={[styles.circle, styles.circle_left]} />
+        <AppButton style={styles.BackBtn} onPress={() => navigation.goBack()} content={true} patchImg={require('../../asset/Img/IC_BackArrow.png')} />
         <Text style={styles.title}>Tạo lịch trình cần làm mới nào !</Text>
         <Image
           style={styles.Image}
@@ -41,13 +53,13 @@ const DetailScreen = ({ route, navigation }) => {
           <InputForm
             title={'Tiêu đề'}
             value={title}
-            onChangeText={newTest => setTitle(newTest)} />
+            onChangeText={newTest => handleChangeText(newTest)} />
           <InputForm
             title={'Độ ưu tiên'}
-            Holder={Priority}
+            Holder={Priority?.Label || 'Vui lòng chọn độ ưu tiên công việc'}
             isButtonMode={true}
             ButtonModePatch={require('../../asset/Img/IC_Arrwdown.png')}
-            onPress={() => setVisible(!Visible)} />
+            onPress={handlePrioFrom} />
           <InputForm
             title={'Ngày kết thúc'}
             Holder={'Vui lòng nhấn để chọn ngày kết  thúc'}

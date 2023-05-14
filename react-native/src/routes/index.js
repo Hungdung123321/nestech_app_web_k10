@@ -16,6 +16,7 @@ const MainRoutes = () => {
       <MainStack.Navigator screenOptions={{ headerShown: false }}>
         <MainStack.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
         <MainStack.Screen name={SCREEN_NAMES.DETAIL} component={DetailScreen} />
+
       </MainStack.Navigator>
     </NavigationContainer>
   );
